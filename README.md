@@ -52,6 +52,8 @@ The verification plan covers 21 test scenarios across 4 main categories, targeti
 | **Hardware Interrupts** | - **Generation:** Asserts `TISR.int_st` when the counter matches `TCMP0/1` without interrupting the count (`interrupt_chk`).<br>- **Masking & W1C:** Masking via `TIER.int_en` and status clearing via Write-1-to-Clear (W1C).<br>- **Priority Logic:** Software Clear (W1C) takes priority over Hardware Set during simultaneous assertion (`interrupt_chk`). |
 | **Debug Halt Mechanism** | - **Handshake Protocol:** Assertion of `halt_req` and `halt_ack` during debug mode (`dbg_mode` = 1).<br>- **Freeze & Resume:** Counter freezes at the current value and resumes without skipping division beats (`debug_halt_chk`).<br>- **Halt vs Clear Priority:** Halt mode overrides the hardware clear function if timer_en drops during debug (`debug_halt_chk`). |
 
+*For the complete and detailed testcase matrix and pass/fail criteria, please refer to the [Detailed Verification Plan](vplan.md).*
+
 ### 4.2. Code Coverage 
 Code coverage is collected and analyzed using **QuestaSim**, generating the standard Unified Coverage Database (`.ucdb`). The environment achieved 100% Code Coverage across all metrics:
 * Line Coverage: 100%
