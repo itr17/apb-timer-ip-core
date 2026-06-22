@@ -1,0 +1,13 @@
+cnt_counting_chk
+reg_init_chk
+reg_rw_chk
+reg_reserved_chk
+reg_1hot_chk
+apb_protocol_chk
+apb_multiple_access
+cnt_ctrl_chk
+interrupt_chk
+error_logic_chk
+byte_access_chk
+debug_halt_chk
+cnt_divider_chk

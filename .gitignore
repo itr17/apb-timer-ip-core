@@ -1,0 +1,28 @@
+# Icarus Verilog & GTKWave
+*.vvp
+*.vcd
+
+# QuestaSim / ModelSim
+work/
+transcript
+*.wlf
+*.ucdb
+*.log
+*.ini
+*.dbg
+covhtmlreport/
+coverage/
+*.cdd
+tmp*
+
+# Xilinx Vivado 
+*.jou
+*.pb
+.Xil/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# File test
+run_test.v
