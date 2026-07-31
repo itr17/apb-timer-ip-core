@@ -52,6 +52,13 @@ task reg_rw_chk_task;
             $display(" ERROR: TDR0 0xAA mismatch! Got: 0x%08h", rdata);
             err_cnt = err_cnt + 1;
         end
+        apb_write(12'h004, 32'h0000_0000, 4'b1111, err_flag);
+        apb_write(12'h004, 32'hFFFF_FFFF, 4'b0000, err_flag);
+        apb_read(12'h004, rdata, err_flag);
+        if (rdata !== 32'h0000_0000) begin
+            $display(" ERROR: TDR0 0xFF with no byte access mismatch! Got: 0x%08h", rdata);
+            err_cnt = err_cnt + 1;
+        end
 
         $display("[%0t] Testing TDR1 (0x008)...", $time);
         apb_write(12'h008, 32'h5555_5555, 4'b1111, err_flag);
@@ -64,6 +71,13 @@ task reg_rw_chk_task;
         apb_read(12'h008, rdata, err_flag);
         if (rdata !== 32'hAAAA_AAAA) begin
             $display(" ERROR: TDR1 0xAA mismatch! Got: 0x%08h", rdata);
+            err_cnt = err_cnt + 1;
+        end
+        apb_write(12'h008, 32'h0000_0000, 4'b1111, err_flag);
+        apb_write(12'h008, 32'hFFFF_FFFF, 4'b0000, err_flag);
+        apb_read(12'h008, rdata, err_flag);
+        if (rdata !== 32'h0000_0000) begin
+            $display(" ERROR: TDR1 0xFF with no byte access mismatch! Got: 0x%08h", rdata);
             err_cnt = err_cnt + 1;
         end
 
