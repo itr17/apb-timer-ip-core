@@ -14,6 +14,8 @@ covhtmlreport/
 coverage/
 *.cdd
 tmp*
+*.identifier    
+*.mti           
 
 # Xilinx Vivado 
 *.jou
